@@ -1,0 +1,10 @@
+version: '3.8' # Use a recent version of Docker Compose file format
+
+services:
+  price_monitor_bot:
+    build: . # Build the image using the Dockerfile in the current directory
+    container_name: blackhole_price_bot # Assign a specific name to your container
+    restart: unless-stopped # Always restart the container unless it's explicitly stopped
+    environment:
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - TELEGRAM_CHAT_ID=${TELEGRAM_CHAT_ID}
